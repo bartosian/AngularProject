@@ -3,15 +3,15 @@ import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 
 import { Category } from '../../shared/models/category.model';
-import { WFMEvent } from '../../shared/models/event.model';
+import { APPEvent } from '../../shared/models/event.model';
 import { EventsService } from '../../shared/services/events.service';
 import { BillService } from '../../shared/services/bill.service';
 import { Bill } from '../../shared/models/bill.model';
 import { Message } from '../../../shared/models/message.model';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'wfm-add-event',
+  selector: 'app-add-event',
   templateUrl: './add-event.component.html',
   styleUrls: ['./add-event.component.scss']
 })
@@ -22,8 +22,8 @@ export class AddEventComponent implements OnInit, OnDestroy {
   @Input() categories: Category[] = [];
 
   types = [
-    {type: 'income', label: 'Доход'},
-    {type: 'outcome', label: 'Расход'}
+    {type: 'income', label: 'Income'},
+    {type: 'outcome', label: 'Outcome'}
   ];
 
   message: Message;
@@ -45,7 +45,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
     let {amount, description, category, type} = form.value;
     if (amount < 0) amount *= -1;
 
-    const event = new WFMEvent(
+    const event = new APPEvent(
       type, amount, +category,
       moment().format('DD.MM.YYYY HH:mm:ss'), description
     );
@@ -55,7 +55,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
         let value = 0;
         if (type === 'outcome') {
           if (amount > bill.value) {
-            this.showMessage(`На счету недостаточно средств. Вам нехватает ${amount - bill.value}`);
+            this.showMessage(`There isn't enough money on your account. You need ${amount - bill.value}`);
             return;
           } else {
             value = bill.value - amount;
@@ -78,8 +78,12 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.sub1) this.sub1.unsubscribe();
-    if (this.sub2) this.sub2.unsubscribe();
+    if (this.sub1) {
+      this.sub1.unsubscribe();
+    }
+    if (this.sub2) {
+      this.sub2.unsubscribe();
+    }
   }
 
 }
