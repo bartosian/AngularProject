@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private title: Title,
-              private meta: Meta
+              private meta: Meta,
+              private fb: FormBuilder
   ) {
     title.setTitle('Enter system');
     meta.addTags([
@@ -41,20 +42,20 @@ export class LoginComponent implements OnInit {
       .subscribe((params: Params) => {
         if (params['nowCanLogin']) {
           this.showMessage({
-            text: 'Теперь вы можете зайти в систему',
+            text: 'You can log in now',
             type: 'success'
           });
         } else if (params['accessDenied']) {
           this.showMessage({
-            text: 'Для работы с системой вам необходимо войти',
+            text: 'To work with system you need to log in',
             type: 'warning'
           });
         }
       });
 
-    this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -79,13 +80,13 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/system', 'bill']);
           } else {
             this.showMessage({
-              text: 'Пароль не верный',
+              text: 'Wrong password',
               type: 'danger'
             });
           }
         } else {
           this.showMessage({
-            text: 'Такого пользователя не существует',
+            text: 'Wrong credentials',
             type: 'danger'
           });
         }
