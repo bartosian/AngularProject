@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header bordered">
     <div class="header-block">
-      <h3 class="title">Добавить категорию</h3>
+      <h3 class="title">Add category</h3>
     </div>
   </div>
   <div class="card-block">
@@ -10,7 +10,7 @@
         class="form-group"
         [ngClass]="{'has-error': name.invalid && name.touched}"
       >
-        <label class="control-label" for="category-name">Введите название</label>
+        <label class="control-label" for="category-name">Enter name</label>
         <input
           type="text"
           id="category-name"
@@ -23,13 +23,13 @@
         <span
           *ngIf="name.invalid && name.touched"
           class="form-help-text"
-        >Название категории не может быть пустым.</span>
+        >Category's name can't be empty.</span>
       </div>
       <div
         class="form-group"
         [ngClass]="{'has-error': capacity.invalid && capacity.touched}"
       >
-        <label class="control-label" for="category-value">Введите лимит</label>
+        <label class="control-label" for="category-value">Enter limit</label>
         <input
           type="number"
           id="category-value"
@@ -44,14 +44,14 @@
           *ngIf="capacity.invalid && capacity.touched"
           class="form-help-text"
         >
-          Поле не может быть пустым
+          Field can't be empty.
         </span>
       </div>
       <button
         type="submit"
         class="btn btn-primary"
         [disabled]="f.invalid"
-      >Добавить</button>
+      >Add</button>
     </form>
   </div>
 </div>
