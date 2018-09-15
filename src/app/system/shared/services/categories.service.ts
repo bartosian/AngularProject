@@ -1,13 +1,13 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { BaseApi } from '../../../shared/core/base-api';
 import { Category } from '../models/category.model';
 
 @Injectable()
 export class CategoriesService extends BaseApi {
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     super(http);
   }
 
