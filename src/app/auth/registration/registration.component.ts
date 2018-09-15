@@ -7,7 +7,7 @@ import { User } from '../../shared/models/user.model';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'wfm-registration',
+  selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })

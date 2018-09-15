@@ -28,8 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./assets/vendor.css",
-              "./assets/theme.css"
+              "src/assets/vendor.css",
+              "src/assets/theme.css"
             ],
             "scripts": []
           },
