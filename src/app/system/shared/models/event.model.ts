@@ -1,4 +1,4 @@
-export class WFMEvent {
+export class APPEvent {
   constructor(
     public type: string,
     public amount: number,
