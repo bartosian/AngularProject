@@ -11,10 +11,16 @@
       "password": "12345678",
       "name": "Kiryl Bartashevich",
       "id": 2
+    },
+    {
+      "email": "alex.lomonovskaya@mail.ru",
+      "password": "12345678",
+      "name": "Aliaksandra Bartashevich",
+      "id": 3
     }
   ],
   "bill": {
-    "value": 94600,
+    "value": 94100,
     "currency": "RUB"
   },
   "categories": [
@@ -98,6 +104,14 @@
       "date": "03.07.2017 23:26:15",
       "description": "тест фильтр",
       "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 500,
+      "category": 3,
+      "date": "15.09.2018 17:44:39",
+      "description": "Bought wheels",
+      "id": 9
     }
   ]
 }
