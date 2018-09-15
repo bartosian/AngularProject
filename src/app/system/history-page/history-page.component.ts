@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { EventsService } from '../shared/services/events.service';
 import { Category } from '../shared/models/category.model';
-import { WFMEvent } from '../shared/models/event.model';
+import { APPEvent } from '../shared/models/event.model';
 
 @Component({
   selector: 'app-history-page',
@@ -23,8 +23,8 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   s1: Subscription;
 
   categories: Category[] = [];
-  events: WFMEvent[] = [];
-  filteredEvents: WFMEvent[] = [];
+  events: APPEvent[] = [];
+  filteredEvents: APPEvent[] = [];
 
   chartData = [];
 
@@ -34,7 +34,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     this.s1 = combineLatest(
       this.categoriesService.getCategories(),
       this.eventService.getEvents()
-    ).subscribe((data: [Category[], WFMEvent[]]) => {
+    ).subscribe((data: [Category[], APPEvent[]]) => {
       this.categories = data[0];
       this.events = data[1];
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppEvent } from '../../shared/models/event.model';
+import { APPEvent } from '../../shared/models/event.model';
 import { Category } from '../../shared/models/category.model';
 
 @Component({
@@ -9,7 +9,7 @@ import { Category } from '../../shared/models/category.model';
 })
 export class HistoryEventsComponent implements OnInit {
   @Input() categories: Category[] = [];
-  @Input() events: AppEvent[] = [];
+  @Input() events: APPEvent[] = [];
   searchValue = '';
   searchPlaceholder = 'Sum';
   searchField = 'amount';
@@ -22,7 +22,7 @@ export class HistoryEventsComponent implements OnInit {
     });
   }
 
-  getEventClass(e: AppEvent) {
+  getEventClass(e: APPEvent) {
     return {
       'label': true,
       'label-danger': e.type === 'outcome',

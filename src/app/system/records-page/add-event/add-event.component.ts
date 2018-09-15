@@ -9,6 +9,7 @@ import { BillService } from '../../shared/services/bill.service';
 import { Bill } from '../../shared/models/bill.model';
 import { Message } from '../../../shared/models/message.model';
 import { Subscription } from 'rxjs';
+import {mergeMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-event',
@@ -64,9 +65,9 @@ export class AddEventComponent implements OnInit, OnDestroy {
           value = bill.value + amount;
         }
 
-        this.sub2 = this.billService.updateBill({value, currency: bill.currency})
-          .mergeMap(() => this.eventsService.addEvent(event))
-          .subscribe(() => {
+        this.sub2 = this.billService.updateBill({value, currency: bill.currency}).pipe(
+          mergeMap(() => this.eventsService.addEvent(event))
+        ).subscribe(() => {
             form.setValue({
               amount: 0,
               description: ' ',
