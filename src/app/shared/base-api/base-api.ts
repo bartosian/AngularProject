@@ -1,12 +1,13 @@
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class BaseApi {
   private baseUrl = 'http://localhost:3000/';
 
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
   }
 
   private getUrl(url: string = ''): string {
@@ -14,17 +15,14 @@ export class BaseApi {
   }
 
   public get(url: string = ''): Observable<any> {
-    return this.http.get(this.getUrl(url))
-      .map((response: Response) => response.json());
+    return this.http.get(this.getUrl(url));
   }
 
   public post(url: string = '', data: any = {}): Observable<any> {
-    return this.http.post(this.getUrl(url), data)
-      .map((response: Response) => response.json());
+    return this.http.post(this.getUrl(url), data);
   }
 
   public put(url: string = '', data: any = {}): Observable<any> {
-    return this.http.put(this.getUrl(url), data)
-      .map((response: Response) => response.json());
+    return this.http.put(this.getUrl(url), data);
   }
 }
