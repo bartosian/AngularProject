@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Bill } from '../models/bill.model';
 import { BaseApi } from '../../../shared/core/base-api';
 
 @Injectable()
 export class BillService extends BaseApi {
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     super(http);
   }
 
@@ -20,8 +20,7 @@ export class BillService extends BaseApi {
   }
 
   getCurrency(base: string = 'RUB'): Observable<any> {
-    return this.http.get(`http://data.fixer.io/api/latest?access_key=c10bff297e8e66ebe24134404f6a7bfc`)
-      .map((response: Response) => response.json());
+    return this.http.get(`http://data.fixer.io/api/latest?access_key=c10bff297e8e66ebe24134404f6a7bfc`);
   }
 
 }
