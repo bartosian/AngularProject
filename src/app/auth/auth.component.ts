@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { fadeStateTrigger } from '../shared/animations/fade.animation';
 
 @Component({
-  selector: 'wfm-auth',
+  selector: 'app-auth',
   templateUrl: './auth.component.html',
   animations: [fadeStateTrigger]
 })

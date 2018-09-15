@@ -10,7 +10,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { fadeStateTrigger } from '../../shared/animations/fade.animation';
 
 @Component({
-  selector: 'wfm-login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   animations: [fadeStateTrigger]
@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
               private title: Title,
               private meta: Meta
   ) {
-    title.setTitle('Вход в систему');
+    title.setTitle('Enter system');
     meta.addTags([
-      { name: 'keywords', content: 'логин,вход,система' },
-      { name: 'description', content: 'Страница для входа в систему' }
+      { name: 'keywords', content: 'Login, entrance, system' },
+      { name: 'description', content: 'Starting page' }
     ]);
   }
 
