@@ -5,6 +5,12 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "bartos2013@mail.ru",
+      "password": "12345678",
+      "name": "Kiryl Bartashevich",
+      "id": 2
     }
   ],
   "bill": {
