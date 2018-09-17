@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, combineLatest } from 'rxjs';
+import { combineLatest } from 'rxjs';
 import { Subscription } from 'rxjs';
 
 import { BillService } from '../shared/services/bill.service';
