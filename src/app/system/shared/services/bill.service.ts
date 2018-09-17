@@ -12,7 +12,7 @@ export class BillService extends BaseApi {
   }
 
   getBill(): Observable<Bill> {
-    return this.get('bill');
+    return this.get('api/bill');
   }
 
   updateBill(bill: Bill): Observable<Bill> {

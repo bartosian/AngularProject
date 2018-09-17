@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { UsersService } from './shared/services/users.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import {ApiInterceptor} from './shared/interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [UsersService, AuthService, AuthGuard],
+  providers: [
+    UsersService,
+    AuthService,
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
