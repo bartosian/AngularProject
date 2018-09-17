@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const formData = this.form.value;
 
-    this.usersService.getUserByEmail(formData.email)
+    this.usersService.getUserByEmail(formData)
       .subscribe((user: User) => {
         if (user) {
           if (user.password === formData.password) {
