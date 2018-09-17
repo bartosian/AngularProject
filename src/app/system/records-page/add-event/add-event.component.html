@@ -18,12 +18,12 @@
           class="form-control"
           id="category"
           required
-          [ngModel]="1"
+          [ngModel]="categories[0]._id"
           name="category"
         >
           <option
             *ngFor="let c of categories"
-            [value]="c.id"
+            [value]="c._id"
           >
             {{c.name}}
           </option>
