@@ -73,22 +73,18 @@ export class LoginComponent implements OnInit {
     const formData = { email, password };
 
     this.usersService.getUserByEmail(formData)
-      .subscribe((user: User) => {
-        if (user) {
-          if (user.password === formData.password) {
+      .subscribe((res: any) => {
+        if (res.authToken) {
             this.message.text = '';
-            window.localStorage.setItem('user', JSON.stringify(user));
+            const { authToken, ...userInfo} = res;
+            window.localStorage.setItem('user', JSON.stringify(userInfo));
+            window.localStorage.setItem('token', authToken);
             this.authService.login();
+
             this.router.navigate(['/system', 'bill']);
-          } else {
-            this.showMessage({
-              text: 'Wrong password',
-              type: 'danger'
-            });
-          }
         } else {
           this.showMessage({
-            text: 'Wrong credentials',
+            text: res.errorMessage,
             type: 'danger'
           });
         }
