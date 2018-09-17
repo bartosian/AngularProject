@@ -3,7 +3,7 @@
   <div class="title-block">
     <h3 class="title">
       <a [routerLink]="['/system/history']"><i class="fa fa-arrow-left"></i></a>
-      Record № {{ event._id  }}
+      Record № {{ event.date.slice(-4).replace(":","") }}
       <span class="sparkline bar"></span>
     </h3>
   </div>
