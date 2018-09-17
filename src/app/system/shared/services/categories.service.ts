@@ -23,7 +23,7 @@ export class CategoriesService extends BaseApi {
     return this.put(`api/categories/${category._id}`, category);
   }
 
-  getCategoryById(id: number): Observable<Category> {
+  getCategoryById(id: string): Observable<Category> {
     return this.get(`api/categories/${id}`);
   }
 }

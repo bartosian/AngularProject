@@ -47,7 +47,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
     if (amount < 0) amount *= -1;
 
     const event = new APPEvent(
-      type, amount, +category,
+      type, amount, category,
       moment().format('DD.MM.YYYY HH:mm:ss'), description
     );
 

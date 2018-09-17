@@ -14,7 +14,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
   @Input() categories: Category[] = [];
   @Output() onCategoryEdit = new EventEmitter<Category>();
 
-  currentCategoryId = 1;
+  currentCategoryId = '5b9fccb2a264b12e76ea677b';
   currentCategory: Category;
   message: Message;
 
@@ -30,14 +30,14 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
 
   onCategoryChange() {
     this.currentCategory = this.categories
-      .find(c => c._id === +this.currentCategoryId);
+      .find(c => c._id === this.currentCategoryId);
   }
 
   onSubmit(form: NgForm) {
     let {capacity, name} = form.value;
     if (capacity < 0) capacity *= -1;
 
-    const category = new Category(name, capacity, +this.currentCategoryId);
+    const category = new Category(name, capacity, this.currentCategoryId);
 
     this.sub1 = this.categoriesService.updateCategory(category)
       .subscribe((category: Category) => {
