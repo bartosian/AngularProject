@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+.title-block  .title {
+  background: #52bcd3;
+  height: 50px;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 10px;
+  box-shadow: 0 7px 8px #4f5f6f;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
