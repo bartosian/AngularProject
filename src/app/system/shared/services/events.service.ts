@@ -12,14 +12,14 @@ export class EventsService extends BaseApi {
   }
 
   addEvent(event: APPEvent): Observable<APPEvent> {
-    return this.post('events', event);
+    return this.post('api/events', event);
   }
 
   getEvents(): Observable<APPEvent[]> {
-    return this.get('events');
+    return this.get('api/events');
   }
 
   getEventById(id: string): Observable<APPEvent> {
-    return this.get(`events/${id}`);
+    return this.get(`api/events/${id}`);
   }
 }

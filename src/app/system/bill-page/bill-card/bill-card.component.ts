@@ -11,15 +11,18 @@ export class BillCardComponent implements OnInit {
   @Input() bill: Bill;
   @Input() currency: any;
 
-  dollar: number;
-  euro: number;
+  usd: number;
+  btc: number;
+  gbp: number;
+
 
   constructor() { }
 
   ngOnInit() {
     const { rates } = this.currency;
-    this.dollar = rates['USD'] * this.bill.value;
-    this.euro = rates['EUR'] * this.bill.value;
+    this.usd = rates['USD'] * this.bill.value;
+    this.gbp = rates['GBP'] * this.bill.value;
+    this.btc = rates['BTC'] * this.bill.value;
   }
 
 }

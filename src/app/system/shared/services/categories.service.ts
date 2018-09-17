@@ -12,18 +12,18 @@ export class CategoriesService extends BaseApi {
   }
 
   addCategory(category: Category): Observable<Category> {
-    return this.post('categories', category);
+    return this.post('api/categories', category);
   }
 
   getCategories(): Observable<Category[]> {
-    return this.get('categories');
+    return this.get('api/categories');
   }
 
   updateCategory(category: Category): Observable<Category> {
-    return this.put(`categories/${category.id}`, category);
+    return this.put(`api/categories/${category._id}`, category);
   }
 
   getCategoryById(id: number): Observable<Category> {
-    return this.get(`categories/${id}`);
+    return this.get(`api/categories/${id}`);
   }
 }
