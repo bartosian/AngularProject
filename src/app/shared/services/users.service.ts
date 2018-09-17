@@ -18,7 +18,13 @@ export class UsersService extends BaseApi {
     );
   }
 
+  checkUserEmail(email: string): Observable<User> {
+    return this.post('api/valid', { email }).pipe(
+      map((user: User) => user ? user : undefined)
+    );
+  }
+
   createNewUser(user: User): Observable<User> {
-    return this.post('users', user);
+    return this.post('api/signup', user);
   }
 }

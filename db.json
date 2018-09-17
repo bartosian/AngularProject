@@ -25,18 +25,18 @@
   },
   "categories": [
     {
-      "name": "Дом",
+      "name": "Home",
       "capacity": 15000,
       "id": 1
     },
     {
-      "name": "Еда",
+      "name": "Food",
       "capacity": 10000,
       "id": 2
     },
     {
       "id": 3,
-      "name": "Машина",
+      "name": "Car",
       "capacity": 7000
     }
   ],

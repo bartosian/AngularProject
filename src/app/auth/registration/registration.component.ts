@@ -19,13 +19,13 @@ export class RegistrationComponent implements OnInit {
               private router: Router,
               private title: Title
   ) {
-    title.setTitle('Регистрация');
+    title.setTitle('Registration');
   }
 
   ngOnInit() {
     this.form = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
       'name': new FormControl(null, [Validators.required]),
       'agree': new FormControl(false, [Validators.requiredTrue])
     });
@@ -47,7 +47,7 @@ export class RegistrationComponent implements OnInit {
 
   forbiddenEmails(control: FormControl): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.usersService.getUserByEmail(control.value)
+      this.usersService.checkUserEmail(control.value)
         .subscribe((user: User) => {
           if (user) {
             resolve({forbiddenEmail: true});
