@@ -14,7 +14,7 @@
             <h3 class="title">Costs</h3>
           </div>
           <h5 class="planning-expenses pull-right">
-            Balance:  <span class="text-success">{{bill.value | number:'1.2'}} Р</span>
+            Balance:  <span class="text-success">{{bill.value | number:'1.2'}} EUR</span>
           </h5>
         </div>
         <div class="card-block">
@@ -33,7 +33,7 @@
                 from
                 <span class="text-primary">{{ c.capacity | number:'1.2' }}</span>
                 |
-                left <span class="text-{{getCatColorClass(c)}}">{{ c.capacity - getCategoryCost(c) | number:'1.2' }}</span> (RUB)
+                left <span class="text-{{getCatColorClass(c)}}">{{ c.capacity - getCategoryCost(c) | number:'1.2' }}</span> (EUR)
               </p>
             </div>
           </div>
