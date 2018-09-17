@@ -8,6 +8,7 @@ import { User } from '../../shared/models/user.model';
 import { Message } from '../../shared/models/message.model';
 import { AuthService } from '../../shared/services/auth.service';
 import { fadeStateTrigger } from '../../shared/animations/fade.animation';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -68,7 +69,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const formData = this.form.value;
+    const { email, password } = this.form.value;
+    const formData = { email, password };
 
     this.usersService.getUserByEmail(formData)
       .subscribe((user: User) => {

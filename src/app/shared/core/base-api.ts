@@ -18,7 +18,7 @@ export class BaseApi {
   }
 
   public post(url: string = '', data: any = {}): Observable<any> {
-    return this.http.post(this.getUrl(url), data);
+      return this.http.post(this.getUrl(url), data);
   }
 
   public put(url: string = '', data: any = {}): Observable<any> {
