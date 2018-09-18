@@ -1,13 +1,18 @@
 .date-block, .name , li{
   border: 1px solid #3a4651;
   background: #3a4651;
-  color: white;
+  color: orange;
+  text-shadow: 0 0 1px black;
   padding: 5px;
   font-size: 1.2rem;
   transform: translate(15px);
 }
 .date-block {
   transform: translate(0);
+}
+
+.header {
+  font-family: 'Black Ops One', cursive;
 }
 
 .name {

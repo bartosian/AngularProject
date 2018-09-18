@@ -22,11 +22,11 @@ export class ChartComponent implements OnInit  {
    this.chartLabels = this.currencyHistory.map(m => {
      return m.date;
    });
-   let USDData = [];
-   let BTCData = [];
-   let GBPData = [];
+   const USDData = [];
+   const BTCData = [];
+   const GBPData = [];
 
-   for (let month of this.currencyHistory) {
+   for (const month of this.currencyHistory) {
      USDData.push(month['usd']);
      BTCData.push(month['btc']);
      GBPData.push(month['gbp']);
