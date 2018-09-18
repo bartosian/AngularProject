@@ -1,4 +1,4 @@
-<p class="text-xs-center">Login</p>
+<p class="text-xs-center form-name">Login</p>
 <div
   @fade
   class="alert alert-{{message.type}}"
@@ -12,7 +12,7 @@
     class="form-group"
     [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
   >
-    <label for="email">Email</label>
+    <label class="control-label" for="email">Email</label>
     <input
       type="text"
       class="form-control underlined"
@@ -32,7 +32,7 @@
     class="form-group"
     [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
   >
-    <label for="password">Password</label>
+    <label class="control-label" for="password">Password</label>
     <input
       type="password"
       class="form-control underlined"
