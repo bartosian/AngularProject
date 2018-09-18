@@ -48,8 +48,8 @@
               <td>{{ e.catName }}</td>
               <td>
                 <span [ngClass]="getEventClass(e)">
-                  <span *ngIf="e.type === 'income'">Income</span>
-                  <span *ngIf="e.type === 'outcome'">Outcome</span>
+                  <span class="type-lbl" *ngIf="e.type === 'income'">Income</span>
+                  <span class="type-lbl" *ngIf="e.type === 'outcome'">Outcome</span>
                 </span>
               </td>
               <td class="text-lg-center">

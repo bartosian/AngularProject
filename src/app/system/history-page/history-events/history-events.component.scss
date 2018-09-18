@@ -1,5 +1,5 @@
 .table-header {
-  background: #52bcd3;
+  background: #4f5f6f;
   height: 50px;
   text-align: center;
   padding: 8px 20px;
@@ -11,4 +11,33 @@
   font-weight: bold;
   font-family: 'Black Ops One', cursive;
   text-shadow: 0 0 1px black;
+}
+
+.card-header {
+  background: #52bcd3;
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding: 8px 20px;
+  box-shadow: 0 10px 15px #4f5f6f;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: bold;
+  font-family: 'Black Ops One', cursive;
+}
+
+.card-header .title {
+  color: orange;
+  text-shadow: 0 0 2px black;
+}
+
+table {
+  font-family: 'Black Ops One', cursive;
+}
+
+.type-lbl {
+  padding: 8px;
+  min-width: 100px;
+  box-sizing: border-box;
+  display: inline-block;
 }
