@@ -7,7 +7,7 @@
       <div class="row row-sm stats-container">
         <table class="table table-hover">
           <thead>
-          <tr>
+          <tr class="table-header">
             <th>Currency</th>
             <th>Rate</th>
             <th>Date</th>
@@ -15,12 +15,12 @@
           </thead>
           <tbody>
           <tr>
-            <td>EUR</td>
+            <td class="cur">EUR</td>
             <td>1</td>
             <td>{{ currency.date | appMoment:'YYYY-MM-DD' }}</td>
           </tr>
           <tr *ngFor="let c of currencies">
-            <td>{{ c }}</td>
+            <td class="cur">{{ c }}</td>
             <td>{{ currency.rates[c] }}</td>
             <td>{{ currency.date | appMoment:'YYYY-MM-DD' }}</td>
           </tr>
