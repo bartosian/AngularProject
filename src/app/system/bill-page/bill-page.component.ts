@@ -27,9 +27,13 @@ export class BillPageComponent implements OnInit, OnDestroy {
       this.billService.getBill(),
       this.billService.getCurrency(),
       this.billService.getCurrencyHistory('2018-01-01'),
+      this.billService.getCurrencyHistory('2017-06-01'),
       this.billService.getCurrencyHistory('2017-01-01'),
+      this.billService.getCurrencyHistory('2016-06-01'),
       this.billService.getCurrencyHistory('2016-01-01'),
-      this.billService.getCurrencyHistory('2015-01-01')
+      this.billService.getCurrencyHistory('2015-06-01'),
+      this.billService.getCurrencyHistory('2015-01-01'),
+      this.billService.getCurrencyHistory('2014-06-01')
     ).subscribe((data: [Bill, any, any, any, any, any]) => {
       this.bill = data[0];
       this.currency = data[1];
@@ -41,6 +45,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
             date,
             'usd': rates['USD'],
             'btc': rates['BTC'],
+            'gbp': rates['GBP']
           };
         });
       this.currencyHistory = dataArr;
