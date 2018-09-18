@@ -31,6 +31,12 @@ span.close-btn, button.close {
   }
 }
 
+button.close:hover,
+button.close:focus,
+button.close:active {
+  outline: none;
+}
+
 .modal-body {
   background: #eff3f6;
 }
@@ -61,4 +67,10 @@ span.close-btn, button.close {
 
 #period > option {
   height: 25px;
+}
+
+.check-label {
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px white;
+  font-weight: bolder;
 }
