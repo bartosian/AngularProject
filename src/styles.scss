@@ -16,13 +16,22 @@
   text-shadow: 0 0 1px black;
 }
 
-.title-block  h3.title,
-.title-block  h4.title {
+.card-block .title-block {
   text-align: center;
-  color: white;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-weight: bold;
+  background: #4f5f6f;
+
+  h4 {
+    color: white !important;
+    text-shadow: none !important;
+  }
+
+}
+
+.card-block {
+  font-family: 'Black Ops One', cursive;
 }
 
 
