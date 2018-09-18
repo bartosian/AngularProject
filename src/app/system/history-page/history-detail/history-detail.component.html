@@ -2,14 +2,14 @@
 <div *ngIf="isLoaded">
   <div class="title-block">
     <h3 class="title">
-      <a [routerLink]="['/system/history']"><i class="fa fa-arrow-left"></i></a>
-      Record № {{ event.date.slice(-4).replace(":","") }}
+      <a [routerLink]="['/system/history']"><i class="fa fa-arrow-left arrow"></i></a>
+      Record <span class="eventNum">№ {{ event.date.slice(-4).replace(":","") }}</span>
       <span class="sparkline bar"></span>
     </h3>
   </div>
   <section class="section">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
+      <div class="col-xs-8 col-xs-offset-2">
         <div class="card" [ngClass]="{
           'card-success': event.type === 'income',
           'card-danger': event.type === 'outcome'
