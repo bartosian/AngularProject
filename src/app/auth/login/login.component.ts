@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           });
         } else if (params['accessDenied']) {
           this.showMessage({
-            text: 'To work with system you need to log in',
+            text: 'To work with system you need login',
             type: 'warning'
           });
         }

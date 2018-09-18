@@ -11,6 +11,7 @@ import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import {ApiInterceptor} from './shared/interceptors/api.interceptor';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ApiInterceptor} from './shared/interceptors/api.interceptor';
     HttpClientModule,
     AuthModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
   providers: [
     UsersService,

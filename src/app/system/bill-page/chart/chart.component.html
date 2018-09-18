@@ -1,1 +1,12 @@
-<canvas id="myChart" width="400" height="400" #canvas></canvas>
+<div class="col-12">
+  <canvas
+    baseChart
+    [chartType]="'line'"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
+
