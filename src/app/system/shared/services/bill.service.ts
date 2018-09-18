@@ -19,8 +19,12 @@ export class BillService extends BaseApi {
     return this.put('api/bill', bill);
   }
 
-  getCurrency(base: string = 'RUB'): Observable<any> {
+  getCurrency(): Observable<any> {
     return this.http.get(`http://data.fixer.io/api/latest?access_key=c10bff297e8e66ebe24134404f6a7bfc`);
+  }
+
+  getCurrencyHistory(date: string): Observable<any> {
+    return this.http.get(`http://data.fixer.io/api/${date}?access_key=c10bff297e8e66ebe24134404f6a7bfc`);
   }
 
 }

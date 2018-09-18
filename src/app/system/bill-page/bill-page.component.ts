@@ -16,6 +16,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
 
   currency: any;
   bill: Bill;
+  currencyHistory: any;
 
   isLoaded = false;
 
@@ -24,11 +25,25 @@ export class BillPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub1 = combineLatest(
       this.billService.getBill(),
-      this.billService.getCurrency()
-    ).subscribe((data: [Bill, any]) => {
-
+      this.billService.getCurrency(),
+      this.billService.getCurrencyHistory('2018-01-01'),
+      this.billService.getCurrencyHistory('2017-01-01'),
+      this.billService.getCurrencyHistory('2016-01-01'),
+      this.billService.getCurrencyHistory('2015-01-01')
+    ).subscribe((data: [Bill, any, any, any, any, any]) => {
       this.bill = data[0];
       this.currency = data[1];
+
+      const dataArr = data.slice(2)
+        .map(m => {
+          const { date, rates } = m;
+          return {
+            date,
+            'usd': rates['USD'],
+            'btc': rates['BTC'],
+          };
+        });
+      this.currencyHistory = dataArr;
       this.isLoaded = true;
     });
   }
