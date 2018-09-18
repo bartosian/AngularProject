@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { UsersService } from '../../shared/services/users.service';
 import { User } from '../../shared/models/user.model';
 import { Title } from '@angular/platform-browser';
-import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -35,7 +34,6 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     const {email, password, name} = this.form.value;
     const user = new User(email, password, name);
-
     this.usersService.createNewUser(user)
       .subscribe(() => {
         this.router.navigate(['/login'], {
@@ -49,10 +47,7 @@ export class RegistrationComponent implements OnInit {
   forbiddenEmails(control: FormControl): Promise<any> {
     return new Promise((resolve, reject) => {
       this.usersService.checkUserEmail(control.value)
-        .pipe(
-          debounceTime(400),
-          distinctUntilChanged()
-        ).subscribe((user: User) => {
+        .subscribe((user: User) => {
           if (user) {
             resolve({forbiddenEmail: true});
           } else {
