@@ -1,0 +1,22 @@
+
+.n-progress {
+  height: 40px;
+}
+
+.progress-wrap {
+  position: relative;
+}
+
+#progress-name {
+  position: absolute;
+  color: #52bcd3;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  top: -12px;
+  left: 50%;
+  font-weight: bold;
+  text-shadow: 0 0 2px black;
+  transform: translateX(-65px);
+}

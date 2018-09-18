@@ -20,12 +20,12 @@
         <div class="card-block">
 
           <div class="row" *ngFor="let c of categories">
-            <div class="col-xs-6">
+            <div class="col-xs-6 progress-wrap">
               <div class="n-progress">
                 <div class="progress-bar {{getCatColorClass(c)}}" [ngStyle]="{width: getCatPercent(c)}">
-                  <span>{{c.name}}</span>
                 </div>
               </div>
+              <span id="progress-name">{{c.name}}</span>
             </div>
             <div class="col-xs-6">
               <p>
