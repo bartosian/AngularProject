@@ -48,7 +48,7 @@
       <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
         Password must be more than
         {{ form.get('password')['errors']['minlength']['requiredLength'] }}
-        characters. Now it's {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+        characters. <br>  Now it's {{ form.get('password')['errors']['minlength']['actualLength'] }}.
       </span>
     </span>
   </div>
