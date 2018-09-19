@@ -11,7 +11,9 @@
 
 <div *ngIf="!isLoaded" class="text-center"><app-loader></app-loader></div>
 <div *ngIf="isLoaded">
-  <app-history-chart [data]="chartData" *ngIf="events.length"></app-history-chart>
+  <div *ngIf="events.length">
+    <app-history-chart [data]="chartData" *ngIf="hasOutcomeEvent()"></app-history-chart>
+  </div>
   <app-history-events
     [categories]="categories"
     [events]="filteredEvents"

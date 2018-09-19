@@ -64,6 +64,10 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  hasOutcomeEvent() {
+    return this.events.some(e => e.type === 'outcome');
+  }
+
   private toggleFilterVisibility(dir: boolean) {
     this.isFilterVisible = dir;
   }
