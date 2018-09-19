@@ -43,7 +43,7 @@ export class AddEventComponent implements  OnDestroy {
     let {amount, description, category, type} = form.value;
     if (amount < 0) amount *= -1;
 
-    if (!category) {
+    if (!category || typeof category !== 'string') {
       this.showMessage('danger', `You should choose category too`);
       return;
     }
@@ -69,12 +69,7 @@ export class AddEventComponent implements  OnDestroy {
           mergeMap(() => this.eventsService.addEvent(event))
         ).subscribe(() => {
           this.showMessage('success', 'Event was successfully added');
-            form.setValue({
-              amount: 0,
-              description: ' ',
-              category: 1,
-              type: 'outcome'
-            });
+            form.reset();
           });
       });
   }
