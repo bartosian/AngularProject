@@ -16,7 +16,7 @@ import {mergeMap} from 'rxjs/operators';
   templateUrl: './add-event.component.html',
   styleUrls: ['./add-event.component.scss']
 })
-export class AddEventComponent implements OnInit, OnDestroy {
+export class AddEventComponent implements  OnDestroy {
 
   sub1: Subscription;
   sub2: Subscription;
@@ -28,17 +28,15 @@ export class AddEventComponent implements OnInit, OnDestroy {
   ];
 
   message: Message;
+  successMessage: Message;
 
   constructor(private eventsService: EventsService,
               private billService: BillService) {
   }
 
-  ngOnInit() {
-    this.message = new Message('danger', '');
-  }
 
-  private showMessage(text: string) {
-    this.message.text = text;
+  private showMessage(type: string, text: string) {
+    this.message = new Message(type, text);
     window.setTimeout(() => this.message.text = '', 5000);
   }
 
@@ -55,7 +53,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
         let value = 0;
         if (type === 'outcome') {
           if (amount > bill.value) {
-            this.showMessage(`There isn't enough money on your account. You need ${amount - bill.value}`);
+            this.showMessage('danger', `There isn't enough money on your account. You need ${amount - bill.value}`);
             return;
           } else {
             value = bill.value - amount;
@@ -67,6 +65,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
         this.sub2 = this.billService.updateBill({value, currency: bill.currency}).pipe(
           mergeMap(() => this.eventsService.addEvent(event))
         ).subscribe(() => {
+          this.showMessage('success', 'Event was successfully added');
             form.setValue({
               amount: 0,
               description: ' ',
