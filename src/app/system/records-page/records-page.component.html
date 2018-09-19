@@ -7,8 +7,10 @@
 <section class="section text-center" *ngIf="!isLoaded">
   <app-loader></app-loader>
 </section>
+<div *ngIf="!categories.length">
 <div class="col-12 warn-wrap" *ngIf="isLoaded">
-  <h1 class="warn-head" *ngIf="!categories.length">To star work you need to add several categories and their limits. Using <span>'income'</span> event to replenish your balance.</h1>
+  <h1 class="warn-head">To star work you need to add several categories and their limits. Using <span>'income'</span> event to replenish your balance.</h1>
+</div>
 </div>
 <section class="section" *ngIf="isLoaded">
   <div class="row">
