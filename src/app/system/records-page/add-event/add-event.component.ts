@@ -28,7 +28,6 @@ export class AddEventComponent implements  OnDestroy {
   ];
 
   message: Message;
-  successMessage: Message;
 
   constructor(private eventsService: EventsService,
               private billService: BillService) {
@@ -44,6 +43,10 @@ export class AddEventComponent implements  OnDestroy {
     let {amount, description, category, type} = form.value;
     if (amount < 0) amount *= -1;
 
+    if (!category) {
+      this.showMessage('danger', `You should choose category too`);
+      return;
+    }
     const event = new APPEvent(
       type, amount, category,
       moment().format('DD.MM.YYYY HH:mm:ss'), description
