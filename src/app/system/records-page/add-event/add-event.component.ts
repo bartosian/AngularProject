@@ -50,8 +50,6 @@ export class AddEventComponent implements OnInit, OnDestroy {
       type, amount, category,
       moment().format('DD.MM.YYYY HH:mm:ss'), description
     );
-console.log(event);
-
     this.sub1 = this.billService.getBill()
       .subscribe((bill: Bill) => {
         let value = 0;
